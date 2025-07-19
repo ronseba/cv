@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // IMPORTANT: Replace this with the actual URL to your "templates" folder hosted on GitHub Pages.
     // Example: "https://your-github-username.github.io/your-repo-name/templates/"
     // Make sure it ends with a slash!
-    const TEMPLATES_BASE_URL = 'YOUR_GITHUB_PAGES_TEMPLATES_URL_HERE/';
+    const TEMPLATES_BASE_URL = 'https://github.com/ronseba/cv/edit/main/templates/';
     console.log('TEMPLATES_BASE_URL set to:', TEMPLATES_BASE_URL);
 
 
