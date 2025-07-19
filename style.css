@@ -1,0 +1,607 @@
+/* General Styling */
+body {
+    font-family: 'Inter', sans-serif; /* Modern font choice */
+    margin: 0;
+    padding: 0;
+    background-color: #f8fafd; /* Light blueish background */
+    color: #333;
+    line-height: 1.6;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+/* Header */
+.cvalize-header {
+    background-color: #ffffff;
+    padding: 1rem 2rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+    display: flex;
+    justify-content: center; /* Center content horizontally */
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+}
+
+.header-content {
+    max-width: 1400px; /* Limit header width */
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.cvalize-logo {
+    margin: 0;
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #3366ff; /* CValize brand color */
+}
+
+.header-btn {
+    background-color: #f0f0f0;
+    color: #333;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-left: 10px;
+    text-decoration: none;
+    transition: background-color 0.2s, color 0.2s, transform 0.1s;
+}
+
+.header-btn:hover {
+    background-color: #e0e0e0;
+    transform: translateY(-1px);
+}
+
+.header-btn:active {
+    transform: translateY(0);
+}
+
+.header-btn.primary-btn {
+    background-color: #3366ff;
+    color: white;
+}
+
+.header-btn.primary-btn:hover {
+    background-color: #2a52be;
+}
+
+/* Main Container */
+.cvalize-container {
+    display: flex;
+    flex: 1; /* Allows main content to grow */
+    max-width: 1400px;
+    margin: 20px auto;
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.08);
+    overflow: hidden; /* For rounded corners */
+}
+
+/* Sidebar (Left Panel) */
+.cvalize-sidebar {
+    width: 38%; /* Adjust as needed */
+    min-width: 380px; /* Minimum width for readability */
+    padding: 25px 30px;
+    border-right: 1px solid #eee;
+    overflow-y: auto; /* Scrollable sidebar */
+    max-height: calc(100vh - 100px); /* Adjust based on header height */
+    box-sizing: border-box;
+}
+
+.sidebar-title {
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 25px;
+    text-align: left;
+    font-weight: 600;
+}
+
+/* Accordion Styling */
+.accordion-section {
+    background-color: #fcfcfc;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.accordion-summary {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    font-weight: 600;
+    color: #333;
+    cursor: pointer;
+    outline: none;
+    position: relative;
+    user-select: none;
+    transition: background-color 0.2s;
+}
+
+.accordion-summary:hover {
+    background-color: #f5f5f5;
+}
+
+.accordion-summary::after {
+    content: '▼'; /* Down arrow */
+    position: absolute;
+    right: 20px;
+    transition: transform 0.2s;
+    font-size: 0.8em;
+    color: #777;
+}
+
+details[open] .accordion-summary::after {
+    content: '▲'; /* Up arrow */
+    transform: rotate(0deg);
+}
+
+.accordion-content {
+    padding: 15px 20px 20px;
+    border-top: 1px solid #e0e0e0;
+}
+
+/* Form Styling within Accordion */
+.form-group {
+    margin-bottom: 18px;
+}
+
+.input-label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 500;
+    color: #555;
+    font-size: 0.95rem;
+}
+
+.form-input {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    box-sizing: border-box;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.form-input:focus {
+    border-color: #3366ff;
+    box-shadow: 0 0 0 3px rgba(51, 102, 255, 0.2);
+    outline: none;
+}
+
+textarea.form-input {
+    resize: vertical;
+    min-height: 80px;
+}
+
+.form-row {
+    display: flex;
+    gap: 20px;
+    margin-bottom: 18px;
+}
+
+.form-row .half-width {
+    flex: 1;
+}
+
+.input-hint {
+    font-size: 0.85rem;
+    color: #888;
+    margin-top: 5px;
+}
+
+/* Profile Picture Upload */
+.profile-pic-upload-section {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 25px;
+}
+
+.profile-pic-preview {
+    width: 128px;
+    height: 128px;
+    border-radius: 12px;
+    overflow: hidden;
+    flex-shrink: 0;
+    border: 1px solid #eee;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile-pic-preview img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.upload-controls {
+    flex-grow: 1;
+}
+
+.upload-btn {
+    display: inline-block;
+    background-color: #e0e7ff; /* Light blue */
+    color: #3366ff;
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.95rem;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.upload-btn:hover {
+    background-color: #cdd8f9;
+    transform: translateY(-1px);
+}
+
+.upload-btn:active {
+    transform: translateY(0);
+}
+
+/* Dynamic Add/Remove Buttons within sections */
+.add-entry-btn {
+    background-color: #e6f7ed; /* Light green */
+    color: #28a745;
+    padding: 10px 15px;
+    border: 1px dashed #28a745;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 600;
+    margin-top: 10px;
+    width: 100%;
+    text-align: center;
+    transition: background-color 0.2s, color 0.2s, transform 0.1s;
+}
+
+.add-entry-btn:hover {
+    background-color: #d4f0df;
+    transform: translateY(-1px);
+}
+.add-entry-btn:active {
+    transform: translateY(0);
+}
+
+.remove-entry-btn {
+    background-color: #ffe0e0; /* Light red */
+    color: #d9534f;
+    padding: 8px 12px;
+    border: 1px solid #d9534f;
+    border-radius: 6px;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.remove-entry-btn:hover {
+    background-color: #fcc;
+    transform: translateY(-1px);
+}
+.remove-entry-btn:active {
+    transform: translateY(0);
+}
+
+.dynamic-entry-block {
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #eee;
+}
+.dynamic-entry-block:last-of-type {
+    border-bottom: none;
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+
+/* Skill Tags */
+.skills-tags-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.skill-tag {
+    background-color: #e6f7ed; /* Light green background */
+    color: #28a745; /* Darker green text */
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.9rem;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    border: 1px solid #d4f0df;
+}
+
+.skill-tag .remove-skill {
+    font-size: 0.8rem;
+    cursor: pointer;
+    color: #777;
+    margin-left: 5px;
+    font-weight: bold;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+}
+
+.skill-tag .remove-skill:hover {
+    opacity: 1;
+    color: #d9534f; /* Red on hover */
+}
+
+
+/* CV Preview Area (Right Panel) */
+.cvalize-preview-area {
+    flex: 1; /* Takes remaining space */
+    padding: 25px;
+    background-color: #fbfdff; /* Slightly different background for preview */
+    display: flex;
+    justify-content: center;
+    align-items: flex-start; /* Align content to top */
+    overflow-y: auto; /* Scrollable preview */
+    max-height: calc(100vh - 100px); /* Adjust based on header height */
+    box-sizing: border-box;
+}
+
+.cv-template-display {
+    width: 210mm; /* A4 width for realistic preview */
+    min-height: 297mm; /* A4 height */
+    background-color: #ffffff;
+    border: 1px solid #ddd;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 25mm; /* A4 standard margins */
+    box-sizing: border-box;
+    position: relative;
+    overflow: hidden; /* Important for content within */
+}
+
+/* Preview Area Placeholder */
+.template-placeholder {
+    text-align: center;
+    color: #aaa;
+    padding-top: 50mm; /* Center vertically in the A4 space */
+    font-size: 1.1rem;
+}
+
+/* CV Template Specific Styling (for preview and PDF conversion) */
+/* These styles will be injected into the HTML string for PDF generation as well */
+.cv-template-display .cv-header {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.cv-template-display .cv-header h2 {
+    margin: 0;
+    color: #2c3e50;
+    font-size: 2.2rem;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+    text-transform: uppercase;
+}
+
+.cv-template-display .cv-header p {
+    margin: 5px 0;
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.cv-template-display .cv-header p:first-of-type { /* For the contact line */
+    margin-top: 10px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.cv-template-display .profile-pic {
+    width: 128px;
+    height: 128px;
+    border-radius: 50%; /* Circular image */
+    object-fit: cover;
+    margin: 0 auto 15px auto;
+    display: block;
+    border: 3px solid #3366ff; /* Match CValize brand color */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.cv-template-display .section-title {
+    background-color: #e0e7ff; /* Light blue, matching header button */
+    padding: 10px 15px;
+    margin-top: 30px;
+    margin-bottom: 15px;
+    border-left: 5px solid #3366ff;
+    color: #2c3e50;
+    font-weight: bold;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.cv-template-display .section-content {
+    padding-left: 10px; /* Indent content slightly */
+}
+
+.cv-template-display ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.cv-template-display ul li {
+    margin-bottom: 8px;
+}
+
+.cv-template-display .experience-item,
+.cv-template-display .education-item,
+.cv-template-display .project-item {
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #eee;
+}
+
+.cv-template-display .experience-item:last-child,
+.cv-template-display .education-item:last-child,
+.cv-template-display .project-item:last-child {
+    border-bottom: none;
+    margin-bottom: 0; /* Remove extra margin for last item */
+    padding-bottom: 0; /* Remove extra padding for last item */
+}
+
+.cv-template-display .job-title,
+.cv-template-display .degree,
+.cv-template-display .project-name {
+    font-weight: bold;
+    color: #444;
+    font-size: 1.1rem;
+    margin-bottom: 5px;
+}
+
+.cv-template-display .company,
+.cv-template-display .university,
+.cv-template-display .project-dates {
+    color: #777;
+    font-style: italic;
+    margin-top: 3px;
+    font-size: 0.95rem;
+}
+
+.cv-template-display .dates {
+    float: right;
+    font-style: normal;
+    font-weight: normal;
+    color: #666;
+}
+
+.cv-template-display .description,
+.cv-template-display .project-description {
+    margin-top: 8px;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.cv-template-display .preview-skills .skill-tag-pdf { /* Use skill-tag-pdf for preview as well */
+    background-color: #f0f8ff; /* Lighter blue for preview */
+    color: #3366ff;
+    border: 1px solid #d0e0ff;
+    padding: 6px 10px;
+    border-radius: 5px;
+    font-size: 0.85rem;
+    margin-right: 5px;
+    margin-bottom: 5px;
+    display: inline-flex; /* For horizontal flow */
+}
+
+/* Responsive adjustments */
+@media (max-width: 1024px) {
+    .cvalize-container {
+        flex-direction: column; /* Stack sidebar and preview */
+        margin: 10px auto;
+    }
+
+    .cvalize-sidebar {
+        width: 100%;
+        min-width: unset; /* Remove min-width on small screens */
+        border-right: none;
+        border-bottom: 1px solid #eee;
+        max-height: unset; /* Allow full height */
+        padding: 20px;
+    }
+
+    .cvalize-preview-area {
+        width: 100%;
+        max-height: unset; /* Allow full height */
+        padding: 20px; /* Adjust padding for smaller screens */
+    }
+
+    .cv-template-display {
+        width: 100%; /* Adjust A4 width to fit screen */
+        min-height: 500px; /* Ensure some height for preview */
+        padding: 20px; /* Adjust internal padding */
+    }
+
+    .header-content {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .cvalize-logo {
+        margin-bottom: 10px;
+    }
+
+    .header-btn {
+        margin: 5px;
+    }
+}
+
+@media (max-width: 768px) {
+    .cvalize-header {
+        padding: 0.8rem;
+    }
+
+    .cvalize-sidebar {
+        padding: 15px;
+    }
+
+    .form-row {
+        flex-direction: column;
+        gap: 0; /* Remove gap when stacked */
+    }
+
+    .form-row .half-width {
+        width: 100%;
+    }
+
+    .profile-pic-upload-section {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+
+/* --- Loading Overlay Styles --- */
+.loading-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6); /* Semi-transparent black */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000; /* On top of everything */
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
+    visibility: hidden; /* Hidden by default */
+    opacity: 0;
+    transition: visibility 0s, opacity 0.3s linear;
+}
+
+.loading-overlay.visible {
+    visibility: visible;
+    opacity: 1;
+}
+
+.spinner {
+    border: 4px solid rgba(255, 255, 255, 0.3);
+    border-top: 4px solid #fff;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    animation: spin 1s linear infinite;
+    margin-bottom: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

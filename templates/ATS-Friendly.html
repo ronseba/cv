@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{name}} - ATS Friendly CV</title>
+    <style>
+        body { font-family: 'Times New Roman', serif; line-height: 1.5; color: #000; margin: 0; padding: 25mm; font-size: 10pt; }
+        .cv-header { text-align: center; margin-bottom: 20px; }
+        .cv-header h2 { margin: 0; font-size: 22pt; text-transform: uppercase; }
+        .cv-header p { margin: 2px 0; font-size: 9pt; }
+        .profile-pic-container { display: none; } /* ATS friendly usually hides images */
+        .section { margin-bottom: 15px; }
+        .section-title { font-size: 12pt; font-weight: bold; margin-bottom: 8px; border-bottom: 1px solid #000; padding-bottom: 3px; text-transform: uppercase; }
+        .item { margin-bottom: 10px; }
+        .item:last-child { margin-bottom: 0; }
+        .item h4 { margin: 0; font-size: 10pt; font-weight: bold; }
+        .item .dates { float: right; font-size: 9pt; }
+        .item .sub { margin: 0; font-size: 9pt; font-style: italic; }
+        .item p { margin: 3px 0; font-size: 9pt; }
+        .skills-grid { display: block; }
+        .skill-tag-pdf { display: inline; font-size: 9pt; margin-right: 5px; } /* Simple, comma-separated look */
+        .footer { display: none; } /* ATS friendly usually doesn't have footers */
+    </style>
+</head>
+<body>
+    <div class="cv-template-content">
+        <div class="cv-header">
+            <h2>{{name}}</h2>
+            <p>{{email}} | {{phone}} | {{address}}</p>
+        </div>
+        <div class="section">
+            <h3 class="section-title">Summary</h3>
+            <p>{{summary}}</p>
+        </div>
+        {{experienceContent}}
+        <div class="section">
+            <h3 class="section-title">Skills</h3>
+            <p>{{skillsContent}}</p>
+        </div>
+        {{educationContent}}
+        {{projectsContent}}
+        {{certificationsContent}}
+    </div>
+</body>
+</html>

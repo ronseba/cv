@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CValize - Professional CV Builder</title>
+    <!-- Google Fonts: Inter for a modern, professional look -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="cvalize-header">
+        <div class="header-content">
+            <h1 class="cvalize-logo">CValize</h1>
+            <nav>
+                <!-- These buttons will trigger the PDF generation and other actions -->
+                <button class="header-btn" id="match-job-btn">Match Job Description</button>
+                <button class="header-btn" id="download-cv-btn">Download</button>
+                <button class="header-btn primary-btn" id="share-cv-btn">Share</button>
+            </nav>
+        </div>
+    </header>
+
+    <main class="cvalize-container">
+        <aside class="cvalize-sidebar">
+            <h2 class="sidebar-title">CV Details</h2>
+
+            <!-- Template Section -->
+            <details open class="accordion-section">
+                <summary class="accordion-summary">Template</summary>
+                <div class="accordion-content">
+                    <p class="input-label">Choose a CV Template</p>
+                    <select id="template-select" class="form-input">
+                        <option value="Modern" selected>Modern</option>
+                        <option value="Creative">Creative</option>
+                        <option value="Professional">Professional</option>
+                        <option value="ATS-Friendly">ATS-Friendly</option>
+                    </select>
+                    <p class="input-hint">Select a design that best fits your profile.</p>
+                </div>
+            </details>
+
+            <!-- Personal Details Section -->
+            <details open class="accordion-section">
+                <summary class="accordion-summary">Personal Details</summary>
+                <div class="accordion-content">
+                    <div class="form-row profile-pic-upload-section">
+                        <div class="profile-pic-preview">
+                            <img id="profile-pic-display" src="https://placehold.co/128x128/E0E7FF/3366FF?text=128x128" alt="Profile Picture Placeholder">
+                        </div>
+                        <div class="upload-controls">
+                            <label for="profile-picture" class="upload-btn">Upload Image</label>
+                            <input type="file" id="profile-picture" accept="image/*" style="display: none;">
+                            <p class="upload-hint">Recommended: Square image, &lt;2MB</p>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label for="name" class="input-label">Full Name</label>
+                            <input type="text" id="name" class="form-input" placeholder="SOORYADEV J" required>
+                        </div>
+                        <div class="form-group half-width">
+                            <label for="email" class="input-label">Email</label>
+                            <input type="email" id="email" class="form-input" placeholder="sooryadev40@gmail.com" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group half-width">
+                            <label for="phone" class="input-label">Phone</label>
+                            <input type="tel" id="phone" class="form-input" placeholder="+91 7736635831" required>
+                        </div>
+                        <div class="form-group half-width">
+                            <label for="address" class="input-label">LinkedIn/Address</label>
+                            <input type="text" id="address" class="form-input" placeholder="Jayanivas(H) Ettumanoor,Kottayam">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="summary" class="input-label">Summary/Objective</label>
+                        <textarea id="summary" rows="4" class="form-input" placeholder="A brief summary of your career goals or experience."></textarea>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Work Experience Section -->
+            <details class="accordion-section">
+                <summary class="accordion-summary">Work Experience</summary>
+                <div class="accordion-content" id="work-experience-section">
+                    <!-- Initial experience entry -->
+                    <div class="experience-entry dynamic-entry-block">
+                        <div class="form-group">
+                            <label for="job-title-0" class="input-label">Job Title</label>
+                            <input type="text" id="job-title-0" class="form-input" placeholder="Event Coordinator">
+                        </div>
+                        <div class="form-group">
+                            <label for="company-0" class="input-label">Company</label>
+                            <input type="text" id="company-0" class="form-input" placeholder="Talrop">
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group half-width">
+                                <label for="start-date-0" class="input-label">Start Date</label>
+                                <input type="month" id="start-date-0" class="form-input">
+                            </div>
+                            <div class="form-group half-width">
+                                <label for="end-date-0" class="input-label">End Date</label>
+                                <input type="month" id="end-date-0" class="form-input">
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="description-0" class="input-label">Description</label>
+                            <textarea id="description-0" rows="3" class="form-input" placeholder="Worked as an event coordinator in Talrop Village park conference"></textarea>
+                        </div>
+                        <button type="button" class="remove-entry-btn danger-btn" data-type="experience">Remove Experience</button>
+                    </div>
+                    <button type="button" class="add-entry-btn" id="add-experience-btn">Add Experience</button>
+                </div>
+            </details>
+
+            <!-- Education Section -->
+            <details class="accordion-section">
+                <summary class="accordion-summary">Education</summary>
+                <div class="accordion-content" id="education-section">
+                    <!-- Initial education entry -->
+                    <div class="education-entry dynamic-entry-block">
+                        <div class="form-group">
+                            <label for="degree-0" class="input-label">Degree / Certificate</label>
+                            <input type="text" id="degree-0" class="form-input" placeholder="Bachelor of Commerce 7.33 CGPA">
+                        </div>
+                        <div class="form-group">
+                            <label for="institution-0" class="input-label">Institution</label>
+                            <input type="text" id="institution-0" class="form-input" placeholder="Mahathma Gandhi University">
+                        </div>
+                        <div class="form-group">
+                            <label for="edu-period-0" class="input-label">Period</label>
+                            <input type="text" id="edu-period-0" class="form-input" placeholder="2022 - 2025">
+                        </div>
+                        <button type="button" class="remove-entry-btn danger-btn" data-type="education">Remove Education</button>
+                    </div>
+                    <button type="button" class="add-entry-btn" id="add-education-btn">Add Education</button>
+                </div>
+            </details>
+
+            <!-- Skills Section -->
+            <details class="accordion-section">
+                <summary class="accordion-summary">Skills</summary>
+                <div class="accordion-content">
+                    <div class="form-group">
+                        <label for="skills-input" class="input-label">Add Skills (type and press Enter)</label>
+                        <input type="text" id="skills-input" class="form-input" placeholder="e.g., JavaScript">
+                        <div id="skills-display" class="skills-tags-container">
+                            <!-- Pre-populated skills from screenshot -->
+                            <span class="skill-tag">JavaScript <span class="remove-skill">x</span></span>
+                            <span class="skill-tag">TypeScript <span class="remove-skill">x</span></span>
+                            <span class="skill-tag">React <span class="remove-skill">x</span></span>
+                            <span class="skill-tag">Node.js <span class="remove-skill">x</span></span>
+                            <span class="skill-tag">Next.js <span class="remove-skill">x</span></span>
+                            <span class="skill-tag">Tailwind CSS <span class="remove-skill">x</span></span>
+                            <span class="skill-tag">SQL <span class="remove-skill">x</span></span>
+                        </div>
+                    </div>
+                </div>
+            </details>
+
+            <!-- Projects Section -->
+            <details class="accordion-section">
+                <summary class="accordion-summary">Projects</summary>
+                <div class="accordion-content" id="projects-section">
+                    <!-- Initial project entry -->
+                    <div class="project-entry dynamic-entry-block">
+                        <div class="form-group">
+                            <label for="project-name-0" class="input-label">Project Name</label>
+                            <input type="text" id="project-name-0" class="form-input" placeholder="Portfolio Website">
+                        </div>
+                        <div class="form-group">
+                            <label for="project-link-0" class="input-label">Project Link (Optional)</label>
+                            <input type="url" id="project-link-0" class="form-input" placeholder="View Project">
+                        </div>
+                        <div class="form-group">
+                            <label for="project-description-0" class="input-label">Description</label>
+                            <textarea id="project-description-0" rows="3" class="form-input" placeholder="Designed and built a personal portfolio website using Next.js and Tailwind CSS to showcase my projects and skills."></textarea>
+                        </div>
+                        <button type="button" class="remove-entry-btn danger-btn" data-type="project">Remove Project</button>
+                    </div>
+                    <button type="button" class="add-entry-btn" id="add-project-btn">Add Project</button>
+                </div>
+            </details>
+
+            <!-- Certifications Section -->
+            <details class="accordion-section">
+                <summary class="accordion-summary">Certifications</summary>
+                <div class="accordion-content">
+                    <div class="form-group">
+                        <label for="certifications-input" class="input-label">Certifications</label>
+                        <textarea id="certifications-input" rows="3" class="form-input" placeholder="Certification Name, Issuing Body, Year"></textarea>
+                    </div>
+                </div>
+            </details>
+
+        </aside>
+
+        <section class="cvalize-preview-area">
+            <div id="preview-area" class="cv-template-display">
+                <!-- CV content will be rendered here dynamically -->
+                <div class="template-placeholder">
+                    <p>Your CV preview will appear here as you type. Select a template and fill in your details!</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Loading Spinner Overlay -->
+    <div id="loading-overlay" class="loading-overlay">
+        <div class="spinner"></div>
+        <p>Generating your CV...</p>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
